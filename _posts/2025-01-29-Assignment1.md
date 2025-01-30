@@ -28,4 +28,7 @@ To refine the motion, I experimented with different probability values for turni
 
 ## Future Improvements
 
-I’d like to explore fly interactions, introduce environmental elements like food sources, and experiment with mood changes based on surroundings. Even intro
+I’d like to explore fly interactions, introduce environmental elements like food sources, and experiment with mood changes based on surroundings. Even introducing more organisms into the ecosystem.
+
+## Screenshot
+![Screenshot](/img/Assignment1.png)
