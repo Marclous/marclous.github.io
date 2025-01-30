@@ -1,11 +1,11 @@
 ---
-title: Assignment 1 - Randomness
+title: Assignment 1 Randomness
 date: 2025-01-29
 categories: [The Nature of Code, Assignment 1]
 tags: [javascript, p5js]     # TAG names should always be lowercase
 description: [Link to Project](https://editor.p5js.org/Marc1ous/sketches/dyjvTtS7J)
 ---
----
+
 ## Initial Thought
 
 I started experimenting with simulating something in nature. In the beginning, I tried to simulate the random trail of a fly flying. After making one, it is easy to create a bunch of flies flying around. However, the randomness only shows from the random flying trail without any order. Giving them traits. I wanted to simulate "nervous," "chill," "aggressive," and "playful" flies, each with different movement patterns, and explore how personality traits could lead to emergent behaviors in a simple system.
@@ -30,6 +30,6 @@ To refine the motion, I experimented with different probability values for turni
 
 I’d like to explore fly interactions, introduce environmental elements like food sources, and experiment with mood changes based on surroundings. Even introduce some more organimsm to the ecosystem. 
 
----
-## Screeshots
+## Screeshot
 ![Screenshot for project](/img/Assignment1.png)
+
