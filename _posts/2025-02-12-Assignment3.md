@@ -1,6 +1,6 @@
 ---
-title: "Assignment 2 Vectors"
-date: 2025-02-05
+title: "Assignment 3 Forces"
+date: 2025-02-12
 categories: [The Nature of Code]
 tags: [javascript, p5js]     # TAG names should always be lowercase
 ---
