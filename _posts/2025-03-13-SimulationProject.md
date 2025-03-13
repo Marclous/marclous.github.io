@@ -1,6 +1,6 @@
 ---
-title: "Assignment 5 Particle System"
-date: 2025-02-26
+title: "Simulation Project"
+date: 2025-03-12
 categories: [The Nature of Code]
 tags: [javascript, p5js]     # TAG names should always be lowercase
 ---
