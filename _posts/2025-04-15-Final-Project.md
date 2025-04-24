@@ -66,4 +66,20 @@ This project is designed as an interactive art piece that blends entertainment w
 5. Develop a more sophisticated mouse interaction system
 6. Test performance with larger numbers of flies
 
+#### **Updates**
+1. Window Resizing: The canvas now resizes with the browser window.
+2. Food Source: Clicking creates a temporary red circle (foodSource) that attracts flies based on their attractionForce personality trait. It disappears after a few seconds.
+3. Mouse Interaction: Flies now react to the mouse only when there's no food source. Nervous and aggressive flies flee, while others might be slightly attracted or indifferent (this part is simplified but shows the concept).
+4. Personality Refinements:
+5. - Adjusted maxSpeed, turnChance, jumpChance for more distinct movement.
+   - Added size property, making flies visually different.
+   - Added repulsionForce affecting how strongly they push away from others.
+   - Added attractionForce affecting how strongly they are drawn to food.
+6. Fly-to-Fly Interaction (separate method): Flies now actively avoid getting too close to each other using a steering behavior. The strength of this avoidance is influenced by repulsionForce.
+7. Environmental Zone (safeZone): A green rectangle is drawn. The checkSafeZone method detects if a fly is inside, and the update logic makes flies slow down and jump less frequently while within it.
+8. Steering Behaviors: Introduced applyForce, seek, separate, and wander methods for clearer behavior management, based on common steering algorithms.
+9. Code Structure: Cleaned up the update method to calculate forces separately and then apply them. Passed the allFlies array to update and separate for interaction checks.
+Edges: Modified edges to wrap slightly off-screen based on size for smoother transitions.
+10. Visuals: Added transparency to fly colors and used a lighter background. Added rounded corners to the safe zone.
+
 I plan to iterate on this concept by gradually adding complexity while maintaining performance and visual clarity. The goal is to create a system that feels alive and responsive, where users can observe how different personality types create unique patterns of movement and interaction.
