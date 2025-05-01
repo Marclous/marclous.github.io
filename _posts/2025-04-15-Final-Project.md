@@ -4,10 +4,16 @@ date: 2025-04-15
 categories: [The Nature of Code]
 tags: [javascript, p5js]     # TAG names should always be lowercase
 ---
-### Final Project Proposal: **"Persnality in Motion"**
+### Final Project Proposal: **"Personality in Motion"**
 
 ---
 
+**[Link to Sketch](https://editor.p5js.org/Marc1ous/sketches/dyjvTtS7J)**
+
+#### **Description**
+"This is an interactive ecosystem where flies with distinct personalities create emergent patterns as they respond to each other, predator, and user interaction."
+
+---
 #### **Inspirations**
 My inspiration for this project comes from a previous work I developed that explored simulated behaviors. I was fascinated by how simple rules could create complex, lifelike movements and wanted to expand on this concept by adding personality traits to virtual entities. The current fly simulation serves as a foundation that I'm excited to build upon and refine.
 
@@ -26,13 +32,14 @@ My inspiration for this project comes from a previous work I developed that expl
 
 ---
 
-#### **Description**
-"This is an interactive ecosystem where flies with distinct personalities create emergent patterns as they respond to each other and user interaction."
-
----
-
 #### **Context**
-This project is designed as an interactive art piece that blends entertainment with subtle behavioral study. Users will experience it through direct mouse interaction, observing how different personality types respond to their presence. The simulation is meant to be both visually engaging and thought-provoking, inviting viewers to consider how simple rules and traits can create complex systems.
+This project simulates a small ecosystem populated by virtual "flies," each assigned one of four distinct personalities: nervous, chill, aggressive, or playful. These personalities dictate fundamental behavioral parameters such as maximum speed, turning frequency, tendency to make sudden jumps, interaction radius, and visual size. The simulation utilizes p5.js vectors for position, velocity, and acceleration to create realistic physics-based movement.
+
+The flies exhibit several layers of behavior. They wander randomly based on their personality's turning chance but also react dynamically to their environment and each other. Flies maintain personal space through a separation steering behavior, pushing away from nearby flies with a force influenced by their personality (e.g., aggressive flies push harder). User interaction is incorporated through mouse movement, causing flies to either flee (nervous, aggressive) or potentially investigate, depending on their nature. Furthermore, clicking the mouse creates a temporary "food source" that attracts flies based on their personality-driven attraction force, overriding the mouse interaction temporarily.
+
+A key feature is the "safe zone," a designated rectangular area where flies are protected from the simulation's predator. Inside this zone, flies exhibit calmer behavior (slowing down, jumping less) and have the opportunity to reproduce. Reproduction occurs based on a set probability (reproductionRate) for flies within the zone, provided a cooldown period has passed and the total fly population hasn't exceeded a defined maximum (maxFlies). Offspring inherit the parent's personality.
+
+Adding conflict and population control, a predator navigates the space outside the safe zone. It actively seeks the nearest fly, ignoring those within the safe zone, and pursues it. If the predator catches a fly, the fly is removed from the simulation. The predator itself is programmed to actively avoid entering the safe zone using a steering behavior that pushes it away from the zone's boundaries. The simulation uses a semi-transparent background to create visual trails, illustrating the flies' recent paths and enhancing the sense of motion. The flies themselves are rendered using simple geometric shapes (body, head, wings) oriented according to their velocity vector, giving them a more distinct visual identity than simple points.
 
 ---
 
@@ -59,27 +66,18 @@ This project is designed as an interactive art piece that blends entertainment w
 ---
 
 #### **Next Steps**
-1. Refine the existing personality types to make their behaviors more distinct
-2. Experiment with visual representations (trails, shapes, sizes) that better communicate personality
-3. Implement fly-to-fly interactions based on personality types
-4. Add environmental elements that flies can interact with
-5. Develop a more sophisticated mouse interaction system
-6. Test performance with larger numbers of flies
+1. If more time were available, potential next steps could include:
 
-#### **Updates**
-1. Window Resizing: The canvas now resizes with the browser window.
-2. Food Source: Clicking creates a temporary red circle (foodSource) that attracts flies based on their attractionForce personality trait. It disappears after a few seconds.
-3. Mouse Interaction: Flies now react to the mouse only when there's no food source. Nervous and aggressive flies flee, while others might be slightly attracted or indifferent (this part is simplified but shows the concept).
-4. Personality Refinements:
-5. - Adjusted maxSpeed, turnChance, jumpChance for more distinct movement.
-   - Added size property, making flies visually different.
-   - Added repulsionForce affecting how strongly they push away from others.
-   - Added attractionForce affecting how strongly they are drawn to food.
-6. Fly-to-Fly Interaction (separate method): Flies now actively avoid getting too close to each other using a steering behavior. The strength of this avoidance is influenced by repulsionForce.
-7. Environmental Zone (safeZone): A green rectangle is drawn. The checkSafeZone method detects if a fly is inside, and the update logic makes flies slow down and jump less frequently while within it.
-8. Steering Behaviors: Introduced applyForce, seek, separate, and wander methods for clearer behavior management, based on common steering algorithms.
-9. Code Structure: Cleaned up the update method to calculate forces separately and then apply them. Passed the allFlies array to update and separate for interaction checks.
-Edges: Modified edges to wrap slightly off-screen based on size for smoother transitions.
-10. Visuals: Added transparency to fly colors and used a lighter background. Added rounded corners to the safe zone.
+2. More Complex Interactions: Implement fly-to-fly interactions based on personality (e.g., aggressive flies chasing others, playful flies grouping up).
 
-I plan to iterate on this concept by gradually adding complexity while maintaining performance and visual clarity. The goal is to create a system that feels alive and responsive, where users can observe how different personality types create unique patterns of movement and interaction.
+3. Predator Enhancements: Give the predator more sophisticated hunting strategies or introduce multiple predators. Maybe predators could also reproduce or have limited lifespans/energy.
+
+4. Environmental Complexity: Add more environmental features, like obstacles, areas with different physics (e.g., "sticky" zones), or varying food source types/permanence.
+
+5. Fly Evolution/Adaptation: Introduce a simple genetic algorithm where personality traits could change slightly upon reproduction, potentially leading to population shifts over time based on survival success.
+
+6. Visual Refinements: Improve the visual representation of flies and the predator further, perhaps adding subtle animations (like wing beats). Add more visual feedback for fly states (e.g., highlighting a fly being targeted).
+
+7. Sound: Incorporate subtle sound effects using Tone.js for fly movement, predator presence, or interactions.
+
+8. UI Controls: Add sliders or buttons to allow the user to adjust parameters like reproductionRate, maxFlies, predator speed, or the number of initial flies in real-time.
